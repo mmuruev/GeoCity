@@ -20,7 +20,7 @@ class City {
 
 }
 
-class CVSFileParser {
+class TVSFileParser {
 
     public $citiesArray = array(); // contatin all cities from file
     private $inputFileName;
@@ -93,15 +93,15 @@ class Distance {
 }
 
 function closestCity($city, &$citiesArray) {
-    $currentDistance = null;
+    $closestDistance = null;
     $closestCity = reset($citiesArray);
     $closestCityIndex = array_search($closestCity, $citiesArray);
     if (sizeof($citiesArray) > 1) {
         foreach ($citiesArray as $cityIndex => $currentCity) {
             $resolver = new Distance($city, $currentCity);
             $result = $resolver->calculate();
-            if ($currentDistance > $result || $currentDistance == null) {
-                $currentDistance = $result;
+            if ($closestDistance > $result || $closestDistance == null) {
+                $closestDistance = $result;
                 $closestCity = $currentCity;
                 $closestCityIndex = $cityIndex;
             }
@@ -130,7 +130,7 @@ if ($argc == 2) {
     $fileName = $argv[1];
 }
 
-$parser = new CVSFileParser($fileName);
+$parser = new TVSFileParser($fileName);
 $city = array_shift($parser->citiesArray);
 print($city->name . PHP_EOL);
 $cities = $parser->citiesArray;
