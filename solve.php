@@ -2,9 +2,6 @@
 
 define('DEFAULT_INPUT_FILE_NAME', "cities.txt");
 
-/**
- * Class that contain each city from an input file
- */
 class City {
 
     public $name;
@@ -40,9 +37,8 @@ class CVSFileParser {
     private function fill() {
         $cities = $this->getContextFromFile();
         foreach ($cities as $cityLine) {
-
-            $fields = explode(" ", $cityLine);
-            // expected that <city name>[0] <latitude>[1]  <longitude>[2]
+            $fields = explode("\t", $cityLine);
+            // expected that <city name>[0]\t<latitude>[1]\t<longitude>[2]
             $this->citiesArray[] = new City($fields[0], $fields[1], $fields[2]);
         }
     }

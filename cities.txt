@@ -1,8 +1,8 @@
-Beijing 39.93 116.40
+Beijing	39.93	116.40
 
 
-Singapore 1.14 103.55
+Singapore	1.14	103.55
 
-Dakar 14.40 -17.28
+Dakar	14.40	-17.28
 
-Vladivostok 43.8 131.54
+Vladivostok	43.8	131.54
